@@ -12,7 +12,7 @@
     }
   },
   "projects": {
-    "book-rating": { "tags": [] },
-    "book-rating-e2e": { "tags": [], "implicitDependencies": ["book-rating"] }
+    "book-rating": { "tags": ["scope:books"] },
+    "book-rating-e2e": { "tags": ["scope:books"], "implicitDependencies": ["book-rating"] }
   }
 }
