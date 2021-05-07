@@ -1,0 +1,18 @@
+{
+  "npmScope": "book-rating",
+  "affected": { "defaultBase": "main" },
+  "implicitDependencies": {
+    "package.json": { "dependencies": "*", "devDependencies": "*" },
+    ".eslintrc.json": "*"
+  },
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "@nrwl/workspace/tasks-runners/default",
+      "options": { "cacheableOperations": ["build", "lint", "test", "e2e"] }
+    }
+  },
+  "projects": {
+    "book-rating": { "tags": [] },
+    "book-rating-e2e": { "tags": [], "implicitDependencies": ["book-rating"] }
+  }
+}
