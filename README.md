@@ -22,7 +22,7 @@ Die gesamte Installation wird rund 30 Minuten dauern.
 4. optional: **Git** (und ggf. ein grafischer Client wie SourceTree oder GitExtensions)
 
 Wir empfehlen dir eine Auswahl an Extensions für Visual Studio Code.
-Dazu haben wir ein Extension Pack vorbereitet, das alles nötige einrichtet:
+Dazu haben wir ein Extension Pack vorbereitet, das alles Nötige einrichtet:
 + [Angular-Schule: Extension Pack](https://marketplace.visualstudio.com/items?itemName=angular-schule.angular-schule-extension-pack)
 
    Dazu gehören die folgenden Extensions. Wenn du möchtest, kannst du diese Extensions auch einzeln manuell installieren:
