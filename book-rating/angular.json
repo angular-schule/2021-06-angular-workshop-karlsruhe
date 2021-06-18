@@ -15,13 +15,20 @@
             "main": "apps/book-rating/src/main.ts",
             "polyfills": "apps/book-rating/src/polyfills.ts",
             "tsConfig": "apps/book-rating/tsconfig.app.json",
-            "aot": true,
             "assets": [
               "apps/book-rating/src/favicon.ico",
               "apps/book-rating/src/assets"
             ],
-            "styles": ["apps/book-rating/src/styles.scss"],
-            "scripts": []
+            "styles": [
+              "apps/book-rating/src/styles.scss"
+            ],
+            "scripts": [],
+            "vendorChunk": true,
+            "extractLicenses": false,
+            "buildOptimizer": false,
+            "sourceMap": true,
+            "optimization": false,
+            "namedChunks": true
           },
           "configurations": {
             "production": {
@@ -51,7 +58,8 @@
                 }
               ]
             }
-          }
+          },
+          "defaultConfiguration": ""
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
@@ -81,7 +89,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/book-rating"],
+          "outputs": [
+            "coverage/apps/book-rating"
+          ],
           "options": {
             "jestConfig": "apps/book-rating/jest.config.js",
             "passWithNoTests": true
@@ -110,7 +120,9 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["apps/book-rating-e2e/**/*.{js,ts}"]
+            "lintFilePatterns": [
+              "apps/book-rating-e2e/**/*.{js,ts}"
+            ]
           }
         }
       }
