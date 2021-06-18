@@ -14,15 +14,23 @@ Die gesamte Installation wird rund 30 Minuten dauern.
 
 ## Benötigte Software
 
-1. **Node.js 12** oder höher: [https://nodejs.org](https://nodejs.org)
-   + Mac-User bitte Homebrew verwenden! ([siehe Anleitung](https://presentations.angular.schule/HOMEBREW_NODE))
+1. **Node.js 14** (aktuelle LTS Version): [https://nodejs.org](https://nodejs.org)
+   + Mac-Benutzer bitte Homebrew verwenden! ([siehe Anleitung](https://presentations.angular.schule/HOMEBREW_NODE))
 2. **Google Chrome:** [https://www.google.com/chrome/](https://www.google.com/chrome/)
    + **[Redux DevTools](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd)** (Chrome Extension)
-4. **Visual Studio Code:** [https://code.visualstudio.com](https://code.visualstudio.com)
-   + [Angular-Schule: Extension Pack](https://marketplace.visualstudio.com/items?itemName=angular-schule.angular-schule-extension-pack)  (Visual Studio Code Extension)
-   + [ESLint für VS Code](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)  (`dbaeumer.vscode-eslint`)
-5. optional: **Git** (und ggf. ein grafischer Client wie SourceTree oder GitExtensions)
+3. **Visual Studio Code:** [https://code.visualstudio.com](https://code.visualstudio.com)
+4. optional: **Git** (und ggf. ein grafischer Client wie SourceTree oder GitExtensions)
 
+Wir empfehlen dir eine Auswahl an Extensions für Visual Studio Code.
+Dazu haben wir ein Extension Pack vorbereitet, das alles nötige einrichtet:
++ [Angular-Schule: Extension Pack](https://marketplace.visualstudio.com/items?itemName=angular-schule.angular-schule-extension-pack)
+
+   Dazu gehören die folgenden Extensions. Wenn du möchtest, kannst du diese Extensions auch einzeln manuell installieren:
+
+  * [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+  * [Angular Language Service](https://marketplace.visualstudio.com/items?itemName=Angular.ng-template)
+  * [EditorConfig for VS Code](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig)
+  * [Path Intellisense](https://marketplace.visualstudio.com/items?itemName=christian-kohler.path-intellisense)
 
 ## Proxy?
 
@@ -64,14 +72,14 @@ Bitte lade dir das Projekt herunter und installiere es.
 Du kannst *entweder* das gesamte Repo mit Git klonen:
 
 ```bash
-git clone https://github.com/angular-schule/2021-05-angular-workshop-karlsruhe.git
+git clone https://github.com/angular-schule/2021-06-angular-workshop-karlsruhe.git
 ```
 
-... *oder* du lädst das Repo als ZIP herunter: [Download](https://github.com/angular-schule/2021-05-angular-workshop-karlsruhe/archive/refs/heads/main.zip)
+... *oder* du lädst das Repo als ZIP herunter: [Download](https://github.com/angular-schule/2021-06-angular-workshop-karlsruhe/archive/refs/heads/main.zip)
 
 ### Installieren
 
-Nach dem Download navigiere in den Ordner `2021-05-angular-workshop-karlsruhe` und führe dort die folgenden Befehle aus:
+Nach dem Download navigiere in den Ordner `2021-06-angular-workshop-karlsruhe` und führe dort die folgenden Befehle aus:
 
 ```bash
 cd book-rating
@@ -110,7 +118,7 @@ Wenn Du die Vorbereitung erfolgreich abgeschlossen hast, bist Du startbereit fü
 
 <img src="http://assets.angular.schule/logo-angular-schule.png" height="60">
 
-### &copy; https://angular.schule | Stand: 10.05.2021
+### &copy; https://angular.schule | Stand: 18.06.2021
 
 
 
