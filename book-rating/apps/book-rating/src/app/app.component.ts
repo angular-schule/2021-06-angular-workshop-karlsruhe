@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'br-root',
@@ -11,9 +11,9 @@ export class AppComponent {
 
   beSlow() {
     let x = 0;
-    while(x < 100000) {
+    while (x < 100000) {
       x++;
-      console.log(x)
+      console.log(x);
     }
 
     this.title = '😎';
