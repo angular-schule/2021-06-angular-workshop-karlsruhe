@@ -8,4 +8,14 @@ import { Component, ViewEncapsulation } from '@angular/core';
 })
 export class AppComponent {
   title = 'Book Rating';
+
+  beSlow() {
+    let x = 0;
+    while(x < 100000) {
+      x++;
+      console.log(x)
+    }
+
+    this.title = '😎';
+  }
 }
