@@ -19,9 +19,7 @@
               "apps/book-rating/src/favicon.ico",
               "apps/book-rating/src/assets"
             ],
-            "styles": [
-              "apps/book-rating/src/styles.scss"
-            ],
+            "styles": ["apps/book-rating/src/styles.scss"],
             "scripts": [],
             "vendorChunk": true,
             "extractLicenses": false,
@@ -89,9 +87,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/apps/book-rating"
-          ],
+          "outputs": ["coverage/apps/book-rating"],
           "options": {
             "jestConfig": "apps/book-rating/jest.config.js",
             "passWithNoTests": true
@@ -120,8 +116,31 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
+            "lintFilePatterns": ["apps/book-rating-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    },
+    "feature-books": {
+      "projectType": "library",
+      "root": "libs/feature-books",
+      "sourceRoot": "libs/feature-books/src",
+      "prefix": "books",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/feature-books"],
+          "options": {
+            "jestConfig": "libs/feature-books/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
             "lintFilePatterns": [
-              "apps/book-rating-e2e/**/*.{js,ts}"
+              "libs/feature-books/src/**/*.ts",
+              "libs/feature-books/src/**/*.html"
             ]
           }
         }
