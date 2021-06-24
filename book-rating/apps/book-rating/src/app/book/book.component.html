@@ -23,8 +23,10 @@
 
     -->
 
-    <button class="btn btn-primary mr-2" (click)="book.rating = book.rating - 1">-1</button>
-    <button class="btn btn-primary mr-2" (click)="book.rating = book.rating + 1">+1</button>
+    <ng-container *ngIf="book">
+      <button class="btn btn-primary mr-2" (click)="book.rating = book.rating - 1">-1</button>
+      <button class="btn btn-primary mr-2" (click)="book.rating = book.rating + 1">+1</button>
+    </ng-container>
 
   </div>
 </div>
