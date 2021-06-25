@@ -18,18 +18,9 @@
 
     <p>{{ book?.description }}</p>
 
-    <!--
-      TODO: fix me!
-
-      1. Problem: unveränderbares Objekt wird verändert!
-      2. Problem: Logik im HTML!
-      3. Problem: Anzeige-Komponente macht mehr als sie soll!
-
-    -->
-
     <ng-container *ngIf="book">
-      <button class="btn btn-primary mr-2" (click)="book.rating = book.rating - 1">-1</button>
-      <button class="btn btn-primary mr-2" (click)="book.rating = book.rating + 1">+1</button>
+      <button class="btn btn-primary mr-2" (click)="doRateDown()">-1</button>
+      <button class="btn btn-primary mr-2" (click)="doRateUp()">+1</button>
     </ng-container>
 
   </div>
