@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Book } from '@book-rating/data-books';
+import { Book, BookRatingService } from '@book-rating/data-books';
 
 @Component({
   selector: 'books-dashboard',
@@ -28,11 +28,22 @@ export class DashboardComponent {
     },
   ];
 
+  constructor(private bs: BookRatingService) {
+  }
+
   doRateDown(book: Book): void {
-    console.table(book);
+    const ratedBook = this.bs.rateDown(book);
+    this.updateAndSort(ratedBook);
   }
 
   doRateUp(book: Book): void {
-    console.table(book);
+    const ratedBook = this.bs.rateUp(book);
+    this.updateAndSort(ratedBook);
+  }
+
+  updateAndSort(ratedBook: Book): void {
+    this.books = this.books
+      .map(b => b.isbn === ratedBook.isbn ? ratedBook : b)
+      .sort((a, b) => b.rating - a.rating)
   }
 }
