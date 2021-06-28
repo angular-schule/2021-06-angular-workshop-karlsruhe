@@ -1,11 +1,19 @@
-<form [formGroup]="bookForm">
+<form [formGroup]="bookForm" (ngSubmit)="submitForm()">
 
   <div class="form-group">
     <label for="isbn">ISBN</label>
     <input formControlName="isbn" type="text" class="form-control" id="isbn">
 
-    <div *ngIf="false" class="feedback-error">
-      !!
+    <div *ngIf="isInvalid('isbn')" class="feedback-error">
+      Bitte geben Sie eine gültige ISBN an.
+    </div>
+
+    <div *ngIf="hasError('isbn', 'required')" class="feedback-error">
+      Bitte geben Sie etwas ein!
+    </div>
+
+    <div *ngIf="hasError('isbn', 'minlength')" class="feedback-error">
+      Bitte geben Sie mindestens 3 Zeichen ein!
     </div>
 
   </div>
@@ -21,6 +29,7 @@
   </div>
 
   <button
+    [disabled]="bookForm.invalid"
     type="submit"
     class="btn btn-primary mb-4">
     Create Book
