@@ -14,23 +14,40 @@
     "default": {
       "runner": "@nrwl/workspace/tasks-runners/default",
       "options": {
-        "cacheableOperations": ["build", "lint", "test", "e2e"]
+        "cacheableOperations": [
+          "build",
+          "lint",
+          "test",
+          "e2e"
+        ]
       }
     }
   },
   "projects": {
     "book-rating": {
-      "tags": ["scope:books"]
+      "tags": [
+        "scope:books"
+      ]
     },
     "book-rating-e2e": {
-      "tags": ["scope:books"],
-      "implicitDependencies": ["book-rating"]
+      "tags": [
+        "scope:books"
+      ],
+      "implicitDependencies": [
+        "book-rating"
+      ]
     },
     "data-books": {
-      "tags": ["type:data", "scope:books"]
+      "tags": [
+        "type:data",
+        "scope:books"
+      ]
     },
     "feature-books": {
-      "tags": ["type:feature", "scope:books"]
+      "tags": [
+        "type:feature",
+        "scope:books"
+      ]
     }
   }
 }
