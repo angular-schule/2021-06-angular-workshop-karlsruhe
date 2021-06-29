@@ -7,7 +7,10 @@ import { CreateBookComponent } from './create-book/create-book.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BookDetailsComponent } from './book-details/book-details.component';
 
-export const featureBooksRoutes: Route[] = [];
+export const featureBooksRoutes: Route[] = [
+  { path: 'books', component: DashboardComponent },
+  { path: 'books/:isbn', component: BookDetailsComponent }
+];
 
 @NgModule({
   declarations: [
@@ -18,7 +21,7 @@ export const featureBooksRoutes: Route[] = [];
   ],
   imports: [
     CommonModule,
-    RouterModule,
+    RouterModule.forChild(featureBooksRoutes), // Bug im Generator!
     ReactiveFormsModule
   ],
   exports: [
