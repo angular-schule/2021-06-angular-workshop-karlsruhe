@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { Book, BookRatingService } from '@book-rating/data-books';
+import { Book, BookRatingService, BookStoreService } from '@book-rating/data-books';
 
 @Component({
   selector: 'books-dashboard',
@@ -9,38 +9,19 @@ import { Book, BookRatingService } from '@book-rating/data-books';
   // changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DashboardComponent {
-  books: Book[] = [
-    {
-      isbn: '001',
-      title: 'Angular',
-      description: 'Tolles Buch',
-      rating: 5,
-    },
-    {
-      isbn: '002',
-      title: 'React',
-      description: 'Ok Buch',
-      rating: 3,
-    },
-    {
-      isbn: '003',
-      title: 'jQUery',
-      description: 'Altes Buch',
-      rating: 1,
-    },
-  ];
+  books: Book[] = [];
 
-  constructor(private bs: BookRatingService) {
-    // console.log(bs);
+  constructor(private br: BookRatingService, private bs: BookStoreService) {
+    this.bs.getBooks().subscribe(books => this.books = books)
   }
 
   doRateDown(book: Book): void {
-    const ratedBook = this.bs.rateDown(book);
+    const ratedBook = this.br.rateDown(book);
     this.updateAndSort(ratedBook);
   }
 
   doRateUp(book: Book): void {
-    const ratedBook = this.bs.rateUp(book);
+    const ratedBook = this.br.rateUp(book);
     // const ratedBook = {
     //   ...book,
     //   rating: book.rating < 5 ? ++book.rating : 5
