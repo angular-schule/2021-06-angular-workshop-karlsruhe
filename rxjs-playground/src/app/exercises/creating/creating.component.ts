@@ -40,14 +40,20 @@ export class CreatingComponent implements OnInit {
 
       subscriber.next('😎');
 
-      setTimeout(() => subscriber.next('😎'), 1000);
-      setTimeout(() => subscriber.error('🤬'), 2000);
-      setTimeout(() => subscriber.next('😆'), 3000);
+      const x = setTimeout(() => subscriber.next('😎'), 1000);
+      const y = setTimeout(() => { subscriber.error('🤬'); this.log('ZOMBIE CODE!'); }, 2000);
+      // setTimeout(() => subscriber.next('😆'), 3000);
+
+      return () => {
+        this.log('SCHNELL! Kill die Zombies!');
+        clearTimeout(x);
+        clearTimeout(y);
+      };
     });
 
     // 3. Subscription
     const subscription = observable.subscribe(observer);
-    setTimeout(() => subscription.unsubscribe(), 4000);
+    setTimeout(() => subscription.unsubscribe(), 1000);
 
 
     /******************************/
