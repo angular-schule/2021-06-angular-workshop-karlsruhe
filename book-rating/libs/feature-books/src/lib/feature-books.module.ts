@@ -6,6 +6,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { CreateBookComponent } from './create-book/create-book.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BookDetailsComponent } from './book-details/book-details.component';
+import { Store } from '@ngrx/store';
+import { loadBooks } from 'libs/data-books/src/lib/store/book.actions';
 
 export const featureBooksRoutes: Route[] = [
   { path: '', pathMatch: 'full', component: DashboardComponent },
@@ -28,4 +30,8 @@ export const featureBooksRoutes: Route[] = [
     DashboardComponent
   ]
 })
-export class FeatureBooksModule {}
+export class FeatureBooksModule {
+  constructor(private store: Store) {
+    this.store.dispatch(loadBooks());
+  }
+}
