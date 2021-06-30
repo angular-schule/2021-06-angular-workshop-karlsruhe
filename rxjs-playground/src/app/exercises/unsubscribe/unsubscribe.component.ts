@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy, ChangeDetectionStrategy } from '@angular/core';
 import { Subject, ReplaySubject, timer, Subscription } from 'rxjs';
-import { takeWhile, takeUntil } from 'rxjs/operators';
+import { takeWhile, takeUntil, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'rxw-unsubscribe',
@@ -9,7 +9,9 @@ import { takeWhile, takeUntil } from 'rxjs/operators';
 })
 export class UnsubscribeComponent {
 
-  interval$ = timer(0, 1000);
+  interval$ = timer(0, 1000).pipe(
+    tap(console.log) // how to find leaks
+  )
 
 
 }
