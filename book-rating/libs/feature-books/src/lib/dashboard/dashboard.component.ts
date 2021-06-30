@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { Book, BookRatingService, BookStoreService } from '@book-rating/data-books';
+import { Book, BookRatingService, BookStoreService, selectBooks, selectBooksLoading } from '@book-rating/data-books';
+import { select, Store } from '@ngrx/store';
 
 @Component({
   selector: 'books-dashboard',
@@ -9,9 +10,11 @@ import { Book, BookRatingService, BookStoreService } from '@book-rating/data-boo
   // changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DashboardComponent {
-  books: Book[] = [];
 
-  constructor(private bs: BookStoreService) {
+  books$ = this.store.pipe(select(selectBooks));
+  loading$ = this.store.pipe(select(selectBooksLoading));
+
+  constructor(private store: Store) {
 
   }
 
