@@ -1,7 +1,9 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { BookStoreService } from '@book-rating/data-books';
-import { map, share, shareReplay, switchMap, tap } from 'rxjs/operators';
+import { of } from 'rxjs';
+import { catchError, map, share, shareReplay, switchMap, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'books-book-details',
@@ -11,14 +13,16 @@ import { map, share, shareReplay, switchMap, tap } from 'rxjs/operators';
 export class BookDetailsComponent {
 
   showDetails = false;
-  showLoadingIndicator = false;
 
   book$ = this.route.paramMap.pipe(
     map(paramMap => paramMap.get('isbn') || ''),
-    tap(() => this.showLoadingIndicator = true),
     switchMap(isbn => this.bs.getSingleBook(isbn)),
-    tap(() => this.showLoadingIndicator = false),
-  );
+    catchError((err: HttpErrorResponse) => of({
+      title: 'ERROR',
+      rating: 0,
+      description: err.message
+    }))
+    );
 
   constructor(private route: ActivatedRoute, private bs: BookStoreService) { }
 }
