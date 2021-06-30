@@ -8,6 +8,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { BookDetailsComponent } from './book-details/book-details.component';
 import { Store } from '@ngrx/store';
 import { loadBooks } from 'libs/data-books/src/lib/store/book.actions';
+import { DataBooksModule } from '@book-rating/data-books';
 
 export const featureBooksRoutes: Route[] = [
   { path: '', pathMatch: 'full', component: DashboardComponent },
@@ -24,14 +25,13 @@ export const featureBooksRoutes: Route[] = [
   imports: [
     CommonModule,
     RouterModule.forChild(featureBooksRoutes), // Bug im Generator!
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    DataBooksModule // load me! =)
   ],
   exports: [
     DashboardComponent
   ]
 })
 export class FeatureBooksModule {
-  constructor(private store: Store) {
-    this.store.dispatch(loadBooks());
-  }
+
 }

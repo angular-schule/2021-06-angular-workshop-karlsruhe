@@ -11,7 +11,7 @@ import { Book, BookRatingService, BookStoreService } from '@book-rating/data-boo
 export class DashboardComponent {
   books: Book[] = [];
 
-  constructor() {
+  constructor(private bs: BookStoreService) {
 
   }
 
