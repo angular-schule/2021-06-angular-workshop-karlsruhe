@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { map } from 'rxjs/operators';
+import { BookStoreService } from '@book-rating/data-books';
+import { concatMap, map, mergeMap, switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'books-book-details',
@@ -10,8 +11,9 @@ import { map } from 'rxjs/operators';
 export class BookDetailsComponent {
 
   book$ = this.route.paramMap.pipe(
-    map(paramMap => paramMap.get('isbn'))
+    map(paramMap => paramMap.get('isbn') || ''),
+    switchMap(isbn => this.bs.getSingleBook(isbn))
   )
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private bs: BookStoreService) { }
 }

@@ -22,7 +22,7 @@ export class BookStoreService {
     return this.http.get<Book[]>(this.api + '/books');
   }
 
-  getSingleBooks(isbn: string): Observable<Book> {
+  getSingleBook(isbn: string): Observable<Book> {
     return this.http.get<Book>(this.api + '/books/' + isbn);
   }
 }
