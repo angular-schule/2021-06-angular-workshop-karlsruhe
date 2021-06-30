@@ -35,16 +35,19 @@ export class CreatingComponent implements OnInit {
     // const subscription = of('😎', '🤬', '🤪').subscribe(observer);
 
     // 1b: Eigenes Observable
-    const observable = new Observable(obs => {
+    // 4. Subscriber
+    const observable = new Observable(subscriber => {
 
-      obs.next('😎');
+      subscriber.next('😎');
 
-      setTimeout(() => obs.next('😎'), 1000);
-      setTimeout(() => obs.error('🤬'), 2000);
+      setTimeout(() => subscriber.next('😎'), 1000);
+      setTimeout(() => subscriber.error('🤬'), 2000);
+      setTimeout(() => subscriber.next('😆'), 3000);
     });
 
+    // 3. Subscription
     const subscription = observable.subscribe(observer);
-    setTimeout(() => subscription.unsubscribe(), 1500);
+    setTimeout(() => subscription.unsubscribe(), 4000);
 
 
     /******************************/
